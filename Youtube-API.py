@@ -2,7 +2,7 @@ import json
 import requests
 
 #Extraccion de datos de la API de YOUTUBE. Las 100 canciones mas populares México
-api_key = 'AIzaSyArkt21p3ZcEw8vo3b_oXBFpS0qvELZIBE'
+api_key = 'Your_API_here'
 
 youtube = build('youtube', 'v3', developerKey=api_key)
 
@@ -106,7 +106,7 @@ for j in todos:
 print(todos)
 
 #Extraccion de datos de la API de YOUTUBE. Las 100 canciones mas populares nivel mundial
-api_key = 'AIzaSyArkt21p3ZcEw8vo3b_oXBFpS0qvELZIBE'
+api_key = 'Your_API_here'
 
 youtube = build('youtube', 'v3', developerKey=api_key)
 
