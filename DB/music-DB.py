@@ -125,3 +125,44 @@ dfYT2 = pd.read_sql('SELECT * FROM youtubeG',conn)
 df6 = pd.DataFrame(dfYT2)
 
 # Limpieza de datos con Pandas
+
+#Este código sirva para cambiar el numero de datos que se muestran cuando mandas a llamar el Dataframe
+#pd.set_option('max_rows', 100)
+
+#Se utiliza este código para hacer una última etapa de limpieza en donde se verifica que los datos correspondan con la información vista en las APIS
+#df4 = df4.replace("Sweet Child O Mine","Sweet Child O' Mine")
+
+#Se cambian los nombres de las canciones a mayusculas para homogenizar estos datos y se puedan relacionar entre ellos
+df1['name'] = df1['name'].str.upper()
+df2['name'] = df2['name'].str.upper()
+df3['name'] = df3['name'].str.upper()
+df4['name'] = df4['name'].str.upper()
+df5['name'] = df5['name'].str.upper()
+df6['name'] = df6['name'].str.upper()
+
+#Este código sirve para exportar los Dataframes creados a archivos .CSV. Esto sirve para no correr todo el código de nuevo en posteriores consultas
+#df1.to_csv('df1.csv')
+#df2.to_csv('df2.csv')
+#df3.to_csv('df3.csv')
+#df4.to_csv('df4.csv')
+#df5.to_csv('df5.csv')
+#df6.to_csv('df6.csv')
+
+conn.commit()
+conn.close()
+
+#Para cargar los datos 
+#df1 = pd.read_csv('/content/drive/MyDrive/Mis Documentos/Curso de Python/PROYECTOS/Proyecto APIS y Data Wrangling/df1.csv')
+
+#df1 = df1.drop(['Unnamed: 0'],axis=1)
+
+#Este codigo sirve para acomodar las columnas del Datframe como a nosotros nos ayude mejor
+df1 = df1[['name','popularity']]
+df2 = df2[['name','popularityG']]
+df3 = df3[['name','rank']]
+df4 = df4[['name','rankD']]
+df5 = df5[['name','likecount']]
+df6 = df6[['name','likecountY']]
+
+#Este codigo se utiliza en caso de tener que cambiar el nombre de las columnas de nuestro dataframe
+#df2 = df2.rename(columns={'nameG':'name'})
