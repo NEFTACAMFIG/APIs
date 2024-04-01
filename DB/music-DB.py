@@ -166,3 +166,21 @@ df6 = df6[['name','likecountY']]
 
 #Este codigo se utiliza en caso de tener que cambiar el nombre de las columnas de nuestro dataframe
 #df2 = df2.rename(columns={'nameG':'name'})
+
+# 6. Unión de datos para compararlos, encontrar coincidencias y correlaciones
+
+#Se unen los datos para las canciones MAS POPULARES DE MEXICO en tres plataformas diferentes
+dtMEX1 = pd.merge(df1,df3)
+dtMEX2 = pd.merge(dtMEX1,df5)
+
+#Se guarda la información de las canciones mas populares de Mexico en tres plataformas diferentes
+dtMEX2
+dtMEX2.to_csv('dtMEX2.csv')
+
+#Se unen los datos para las canciones MAS POPULARES A NIVEL GLOBAL en tres plataformas diferentes
+dtG1 = pd.merge(df2,df4)
+dtG2 = pd.merge(dtG1,df6)
+
+#Se guarda la información de las canciones mas populares a NIVEL GLOBAL en tres plataformas diferentes
+dtG2
+dtG2.to_csv('dtG2.csv')
