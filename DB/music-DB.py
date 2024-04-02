@@ -1,3 +1,5 @@
+import plotly.express as px
+
 #Se crea la base de datos en donde guardaremos las tablas de información
 conn = sqlite3.connect('Project_Music.db')
 cursor = conn.cursor();
@@ -184,3 +186,15 @@ dtG2 = pd.merge(dtG1,df6)
 #Se guarda la información de las canciones mas populares a NIVEL GLOBAL en tres plataformas diferentes
 dtG2
 dtG2.to_csv('dtG2.csv')
+
+# 7. Visualización de resultados
+
+# Canciones más populares a nivel Mundial( Septiembre 2022)
+fig = px.scatter_3d(dtG2, x='popularityG', y = 'rankD', z = 'likecountY',
+      color = 'name', size = 'likecountY' )
+fig.show()
+
+# Canciones más populares en México (Septiembre 2022)
+fig = px.scatter_3d(dtMEX2, x='popularity', y = 'rank', z = 'likecount',
+      color = 'name', size = 'likecount' )
+fig.show()
